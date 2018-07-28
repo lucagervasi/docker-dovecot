@@ -6,18 +6,8 @@ RUN apk --update --no-cache upgrade
 RUN apk --update --no-cache add \
     dovecot \
     dovecot-mysql
-#    postfix \
-#    opendkim \
-#    opendkim-utils \
-#    postfix-policyd-spf-perl \
-#    postgrey \
-#    postfix-pcre \
-#    postfix-sqlite \
-#    cyrus-sasl \
-#    cyrus-sasl-digestmd5 \
-#    cyrus-sasl-crammd5
 
-#RUN rm -rf /tmp/* /tmp/.* /var/cache/apk/* || true
+RUN rm -rf /tmp/* /tmp/.* /var/cache/apk/* || true
 #RUN mkdir /etc/supervisor.d/
 #
 #RUN mkdir -p /run/opendkim && chown opendkim /run/opendkim
@@ -30,10 +20,8 @@ RUN apk --update --no-cache add \
 #ADD supervisord.conf /etc/supervisord.conf
 #ADD syslog.conf /etc/syslog.conf
 
-#VOLUME /etc/postfix
-#VOLUME /run/opendkim
+VOLUME /etc/dovecot
 
-#EXPOSE 25
-#EXPOSE 587
+EXPOSE 143
 
 #ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
