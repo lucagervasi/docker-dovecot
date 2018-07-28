@@ -24,6 +24,4 @@ VOLUME /etc/dovecot
 
 EXPOSE 143
 
-
-
-#ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["/usr/sbin/dovecot", "-F"]
